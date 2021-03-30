@@ -1,0 +1,72 @@
+public class Numeros {
+
+private static int valores[];    
+
+public void Numeros(){
+   this.valores = new int[100];
+}
+public static String ImprimirValores(){
+String test = "";
+for(int i = 1; i <= 100; i++){
+    String temp, temp3,temp5 = "";
+      temp3 = (i % 3) == 0 ? "fizz" : "";      
+      temp5 = (i % 5) == 0 ? "buzz" : "";
+      temp = temp3 + temp5;
+      test += temp.isEmpty() ? i : temp;
+}
+return test;
+}
+}
+
+----------------------------------------------------------------------
+public class PruebaJUnit{
+   
+public static Numeros objNumeros = new Numeros();
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        String  resultado = objNumeros.ImprimirValores();
+              
+        System.out.println(resultado);        
+    }
+    ---------------------------------------------------------------------
+    public class NumerosTest {
+    
+    public NumerosTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+    /**
+     * Test of ImprimirValores method, of class Numeros.
+     */
+    //@Test
+    public void testImprimirValores() {
+        System.out.println("ImprimirValores");
+        //int tipo = 9;
+        String expResult = "12fizz4buzzfizz78fizzbuzz11fizz1314fizzbuzz1617fizz19buzzfizz2223fizzbuzz26fizz2829fizzbuzz3132fizz34buzzfizz3738fizzbuzz41fizz4344fizzbuzz4647fizz49buzzfizz5253fizzbuzz56fizz5859fizzbuzz6162fizz64buzzfizz6768fizzbuzz71fizz7374fizzbuzz7677fizz79buzzfizz8283fizzbuzz86fizz8889fizzbuzz9192fizz94buzzfizz9798fizzbuzz";
+        String result = Numeros.ImprimirValores();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        if(!result.equals(expResult))
+        fail("The test case is a prototype.");
+        }
+}
+    
